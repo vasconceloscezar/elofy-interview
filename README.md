@@ -18,14 +18,16 @@ Create a database and change the name on the `.\backend\.env` file.
 
 Open two terminals in the root folder of this repo. 
 
-In the first terminal run these commands: 
+To start the server run these commands: 
 
 ```ps
 ~ cd backend
 ~ php artisan serve
 ```
+By default the server will run in the :8000 port. 
 
-In the other terminal run the following: 
+
+For the client terminal run the following: 
 
 ```ps
 ~ cd frontend
