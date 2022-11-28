@@ -55,10 +55,14 @@
     },
     {
       "label": "client",
-      "type": "npm",
-      "script": "start",
+      "type": "shell",
+      "command": "",
       "options": {
        "cwd": "${workspaceFolder}/frontend",
+       "shell": {
+          "executable": "cmd.exe",
+          "args": [],
+        }
       },
       "isBackground": true,
       "problemMatcher": [],
