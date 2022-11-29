@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Filters\V1\CustomerFilter;
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Http\Resources\V1\CustomerCollection;
@@ -16,11 +17,30 @@ class LoginController extends Controller
 
     public function index(Request $request)
     {
+
+
+    }
+
+    public function show(Customer $customer)
+    {
+        $includeInvoices = request()->query('includeInvoices');
+        if ($includeInvoices) {
+            return new CustomerResource($customer->loadMissing('invoices'));
+        }
+        return new CustomerResource($customer);
+    }
+
+    public function store(LoginRequest $request)
+    {
+        Log::debug('An informational message.');
+        Log::debug($request);
+        // $customerName = $request->
+        // Customer::create($request->all())
         $userName = 'cezar';
         $password = 'pass@12345';
 
-        $reqUser = $request->query('username');
-        $reqPassword = $request->query('password');
+        $reqUser = 'asda';
+        $reqPassword = '21312';
 
         $returnMessage = [
             'message' => ''
@@ -38,21 +58,6 @@ class LoginController extends Controller
 
         return $returnMessage;
 
-
-    }
-
-    public function show(Customer $customer)
-    {
-        $includeInvoices = request()->query('includeInvoices');
-        if ($includeInvoices) {
-            return new CustomerResource($customer->loadMissing('invoices'));
-        }
-        return new CustomerResource($customer);
-    }
-
-    public function store(StoreCustomerRequest $request)
-    {
-        return new CustomerResource(Customer::create($request->all()));
     }
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {

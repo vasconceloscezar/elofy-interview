@@ -45,4 +45,8 @@ class CustomerController extends Controller
         $customer->update($request->all());
     }
 
+    public function login(Request $request)
+    {
+
+    }
 }

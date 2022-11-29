@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function App() {
+export default function PalindromeChecker({ reloadLogin }) {
   const words = ["Anilina", "test", "cezar", "Arara", "Esse", "Reviver"];
   const [palindromeWords, setPalindromeWords] = useState([]);
   const [notPalindromeWords, setNotPalindromeWords] = useState([]);
@@ -19,7 +19,7 @@ export default function App() {
       }
       const reverseWord = wordTest.join("");
 
-      if (lowercaseWord == reverseWord) {
+      if (lowercaseWord === reverseWord) {
         palindromeWords.push(lowercaseWord);
       } else {
         notPalindromeWords.push(lowercaseWord);
@@ -44,6 +44,8 @@ export default function App() {
           </div>
         ))}
       </div>
+
+      <button onClick={() => reloadLogin()}>BACK</button>
     </div>
   );
 }

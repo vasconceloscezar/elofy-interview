@@ -1,6 +1,6 @@
-## Dependencies 
+## Dependencies
 
-Besides CRA Boilerplate, some other dependencies were used: 
+Besides CRA Boilerplate, some other dependencies were used:
 
 - [TailwindCSS](https://tailwindcss.com/docs/installation/using-postcss)
-- 
+- [Axios](https://axios-http.com)

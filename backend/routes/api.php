@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\V1\CustomerController;
-use App\Http\Controllers\API\V1\InvoiceController;
-use App\Http\Controllers\API\V1\LoginController;
+use App\Http\Controllers\API\V1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::apiResource('customers', CustomerController::class);
-    Route::apiResource('login', LoginController::class);
-    Route::apiResource('invoices', InvoiceController::class);
+    Route::apiResource('media', UserController::class);
 });
